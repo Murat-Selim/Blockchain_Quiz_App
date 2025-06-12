@@ -1,0 +1,20 @@
+{
+  "name": "quiz_app",
+  "version": "1.0.0",
+  "description": "This project is a decentralized multiple-choice quiz application built on the Stacks blockchain. Users can answer questions and earn tokens for correct answers.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@stacks/network": "^7.0.2",
+    "@stacks/transactions": "^7.1.0",
+    "@types/node": "^24.0.0"
+  }
+}
