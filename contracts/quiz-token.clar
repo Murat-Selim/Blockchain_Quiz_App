@@ -2,6 +2,8 @@
 ;; This contract defines a fungible token (FT) for the Blockchain Quiz App.
 ;; Tokens are minted and transferred as rewards for correct quiz answers.
 
+(impl-trait 'ST1NXBK3K5YYMD6FD41MVNP3JS1GABZ8TRVX023PT.sip-010-trait-ft-standard.sip-010-trait)
+
 (define-fungible-token quiz-token)
 
 ;; @desc Get the total supply of the quiz token.

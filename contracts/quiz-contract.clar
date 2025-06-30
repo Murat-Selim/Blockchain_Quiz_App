@@ -2,7 +2,7 @@
 ;; This contract manages the quiz questions, user answers, and token rewards.
 
 ;; Imports
-(use-trait 'token-trait .quiz-token.quiz-token)
+(use-trait ft-token 'ST1NXBK3K5YYMD6FD41MVNP3JS1GABZ8TRVX023PT.sip-010-trait-ft-standard.sip-010-trait)
 
 ;; Constants
 (define-constant contract-owner tx-sender) ;; The deployer of the contract is the owner
@@ -76,11 +76,11 @@
     (asserts! (is-some question-data) err-question-not-found)
     (asserts! (< submitted-answer-index u4) err-invalid-answer) ;; Ensure submitted-answer-index is within bounds (0-3)
 
-    (let ((q (unwrap-panic question-data)))
+    (let ((q (unwrap! question-data err-question-not-found)))
       (if (is-eq (get correct-answer-index q) submitted-answer-index)
         (begin
           ;; Mint tokens to the sender
-          (try! (contract-call? .quiz-token.quiz-token mint REWARD_AMOUNT tx-sender))
+          (try! (contract-call? .quiz-token quiz-token mint REWARD_AMOUNT tx-sender))
           (ok true) ;; Correct answer
         )
         (ok false) ;; Incorrect answer
